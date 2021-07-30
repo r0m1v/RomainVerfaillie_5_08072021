@@ -13,6 +13,7 @@ const teddyDisplay = async () => {
   document.getElementById("bloc_products").innerHTML = teddyData
     .map(
       (teddy) => `<div class="formatting_products">
+      <a href="product_selected.html?id=${teddy._id}">
     <img class="img_product" src=${teddy.imageUrl} alt="${teddy.name}">
     <div class="nameandprice">
     <h3>${teddy.name}</h3>
