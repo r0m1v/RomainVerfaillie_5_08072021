@@ -3,36 +3,33 @@
   transformation en un tableau de données teddies
 */
 const fetchTeddies = async () => {
-    const res = await fetch("http://localhost:3000/api/teddies")
-  
-    return await res.json()
-  };
-  
-  /*
+  const res = await fetch("http://localhost:3000/api/teddies");
+
+  return await res.json();
+};
+
+/*
     récupération un teddy à partir de son identifiant (_id)
   */
-  const fetchTeddy = async (id) => {
-    const res = await fetch(`http://localhost:3000/api/teddies/${id}`)
-  
-    return await res.json()
-  };
+const fetchTeddy = async (id) => {
+  const res = await fetch(`http://localhost:3000/api/teddies/${id}`);
 
-  const createTeddyColorsOptionsHtml = teddy => {
-   return teddy.colors.map(color => {
-     return `<option value="${color}">${color}</option>` 
-    }) //map permet de transformer 
-  }
+  return await res.json();
+};
 
-  /*
-  teddy.colors.forEach(color => {
-    return `<option value="${color"
-  })
-  */
-  /*
+const createTeddyColorsOptionsHtml = (teddy) => {
+  return teddy.colors.map((color) => {
+    return `<option value="${color}">${color}</option>`;
+  }); //map permet de transformer
+};
+
+
+/*
     créé un element HTML pour un teddy
   */
-  const createTeddyHTML = teddy => {
- return `
+    
+const createTeddyHTML = (teddy) => {
+  return `
     <div class="formatting_products">
       <a href="product_selected.html?id=${teddy._id}">
         <img class="img_product" src=${teddy.imageUrl} alt="${teddy.name}">
@@ -42,15 +39,17 @@ const fetchTeddies = async () => {
         </div>
         <p>${teddy.description}</p>
       </a>
+      <div id="select_button">
       <select>${createTeddyColorsOptionsHtml(teddy)}</select>
-      <button>Ajouter au panier</button>
-      
+      <button><span id="text_button">Ajouter au panier</span></button>
+      <button id="btn-more">+</button><span id="quantity">0</span><button id="btn-less">-</button>
+      </div>
     </div>
-  `;   
-  }
+  `;
+};
 
-  const createTeddyItemHtml = teddy => {
-    return `
+const createTeddyItemHtml = (teddy) => {
+  return `
        <div class="formatting_products">
          <a href="product_selected.html?id=${teddy._id}">
            <img class="img_product" src=${teddy.imageUrl} alt="${teddy.name}">
@@ -61,6 +60,25 @@ const fetchTeddies = async () => {
            <p>${teddy.description}</p>
          </a>  
        </div>
-     `;   
-     }
+     `;
+};
+
+const basketProductSelected = (teddyData) => {
+  return `<table>
+      <tr>
+        <th>Produit(s)</th>
+        <th>Couleur</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+      </tr>
+      <tr>
+        <th id="nameProduct">${teddyData.name}</th>
+        <th id="couleur"></th>
+        <th id="quantity"></th>
+        <th id="price">${teddyData.price}</th>
+      </tr>
+      <tr><th>Total</th><th id="total"></th></tr>
+    </table>
+    `;
+};
 
