@@ -2,13 +2,6 @@
 const getArticleId = () => {
   return new URL(location.href).searchParams.get("id");
 };
-/*
-const addToCart = (id, color) => {
-
-  //local storage, trouver une solution pour pouvoir ajouter des éléments (couleurs ou teddy differents) + quantité
-}*/
-
-
 
 const teddyDisplay = async () => {
   const articleId = getArticleId();
@@ -18,7 +11,6 @@ const teddyDisplay = async () => {
     name: teddyData.name,
     price: teddyData.price / 100,
     color: teddyData.colors[0],
-    quantity: 0,
   };
   document.getElementById("teddy_container").innerHTML =
     createTeddyHTML(teddyData);
@@ -26,14 +18,8 @@ const teddyDisplay = async () => {
     basketObject.color = e.target.value;
   });
   document.querySelector("button").addEventListener("click", () => {
-    /*addToCart(articleId, selectedColor);*/
-    /*
-    localStorage.card = JSON.stringify(basketObject);
-    window.location.href="basket.html";
-    */
-   //Local storage
     const item = JSON.stringify(basketObject);
-    localStorage.setItem("test", item);
+    localStorage.setItem("basket", item);
     console.log(basketObject);
     window.location.href = "basket.html";
   });
@@ -51,9 +37,9 @@ const teddyDisplay = async () => {
   btnLess.addEventListener("click", () => {
     basketObject.quantity--;
     quantity.innerHTML = basketObject.quantity;
-    if (basketObject.quantity < 0) {
-      quantity.innerHTML = 0;
-      basketObject.quantity = 0;
+    if (basketObject.quantity < 1) {
+      quantity.innerHTML = 1;
+      basketObject.quantity = 1;
     }
   });
 };

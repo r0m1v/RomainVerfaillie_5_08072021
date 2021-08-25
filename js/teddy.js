@@ -42,7 +42,7 @@ const createTeddyHTML = (teddy) => {
       <div id="select_button">
       <select>${createTeddyColorsOptionsHtml(teddy)}</select>
       <button><span id="text_button">Ajouter au panier</span></button>
-      <button id="btn-more">+</button><span id="quantity">0</span><button id="btn-less">-</button>
+      <button id="btn-more">+</button><span id="quantity">1</span><button id="btn-less">-</button>
       </div>
     </div>
   `;
@@ -75,7 +75,7 @@ const basketProductSelected = (teddyData) => {
         <th id="nameProduct">${teddyData.name}</th>
         <th id="couleur">${teddyData.color}</th>
         <th id="quantity">${teddyData.quantity}</th>
-        <th id="price">${teddyData.price}</th>
+        <th id="price">${teddyData.price * teddyData.quantity} €</th>
       </tr>
       <tr><th>Total</th><th id="total"></th></tr>
     </table>
