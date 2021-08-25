@@ -1,6 +1,7 @@
-const test = async ()=> {
-localStorage.getItem("test");
+const test = ()=> {
+const teddyData = JSON.parse(localStorage.getItem("test"));
 document.getElementById("tableau_commande").innerHTML=basketProductSelected(teddyData);
 console.log(basketProductSelected);   
 }
 
+test();

@@ -73,8 +73,8 @@ const basketProductSelected = (teddyData) => {
       </tr>
       <tr>
         <th id="nameProduct">${teddyData.name}</th>
-        <th id="couleur"></th>
-        <th id="quantity"></th>
+        <th id="couleur">${teddyData.color}</th>
+        <th id="quantity">${teddyData.quantity}</th>
         <th id="price">${teddyData.price}</th>
       </tr>
       <tr><th>Total</th><th id="total"></th></tr>
