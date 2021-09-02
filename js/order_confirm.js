@@ -3,9 +3,16 @@ const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,
 const regexMail = /^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]{2,}.[a-z]{2,4}$/;
 const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
 
-
-
 const send = () => {
+  const contact = {
+    lastName: document.getElementById("lastName").value,
+    firstName: document.getElementById("firstName").value,
+    address: document.getElementById("address").value,
+    city: document.getElementById("city").value,
+    email: document.getElementById("email").value,
+  };
+  const basket = JSON.parse(localStorage.getItem("basket"));
+  const products = new Array(basket.quantity).fill(basket.id);
   fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
     headers: {
@@ -13,11 +20,8 @@ const send = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      lastName: "romain",
-      firstName: "verfaillie",
-      address:"6 avenue pasteur",
-      city: "marnes la coquete",
-      email: "rom1@gmail.com",
+      contact,
+      products,
     }),
   })
     .then(function (res) {
@@ -26,27 +30,26 @@ const send = () => {
       }
     })
     .then(function (value) {
-      /*document.getElementById("result").innerText = value.postData.text;*/
+      /* document.getElementById("result").innerText = value.postData.text;*/
       console.log(value);
     });
-};
-
-document.getElementById("bloc_form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const contact = {
-    lastName: document.getElementById("lastName").value,
-    firstName: document.getElementById("firstName").value,
-    address: document.getElementById("address").value,
-    city: document.getElementById("city").value,
-    email: document.getElementById("email").value, 
-  };
-  if (
+}
+  document.getElementById("bloc_form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const contact = {
+      lastName: document.getElementById("lastName").value,
+      firstName: document.getElementById("firstName").value,
+      address: document.getElementById("address").value,
+      city: document.getElementById("city").value,
+      email: document.getElementById("email").value,
+    };
+    if (
       (regexName.test(contact.lastName) == true) &
       (regexName.test(contact.firstName) == true) &
       (regexAddress.test(contact.address) == true) &
       (regexCity.test(contact.city) == true) &
       (regexMail.test(contact.email) == true)
-    ) 
-  alert("Commande confirmée");
-  send();
-});
+    )
+      alert("Commande confirmée");
+    send();
+  });
