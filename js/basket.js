@@ -1,5 +1,5 @@
 //Créer un panier si aucun panier existe
-function initialzeBasket() {
+function initializeBasket() {
   const basketFromLocalSTorage = localStorage.getItem("basket");
   if (!basketFromLocalSTorage) {
     const basket = {
@@ -23,4 +23,5 @@ const basket = JSON.parse(localStorage.getItem("basket"));
   });
   return total;
 }
-initialzeBasket();
+//Passer la commande
+initializeBasket();

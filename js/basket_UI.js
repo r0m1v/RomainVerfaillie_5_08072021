@@ -35,7 +35,7 @@ boardBasket();
 //Clean le local storage
 const cleanBasket = () =>
   document.getElementById("clean_basket").addEventListener("click", (e) => {
-    e.preventDefault;
+    e.preventDefault();
     localStorage.removeItem("basket");
     alert("le panier a été vidé");
     window.location.href = "basket.html";
@@ -57,7 +57,10 @@ const send = () => {
     email: document.getElementById("email").value,
   };
   const basket = JSON.parse(localStorage.getItem("basket"));
-  const products = new Array(basket.quantity).fill(basket.id);
+  let products = [];
+  basket.items.forEach((item) => {
+    products = products.concat(new Array(item.quantity).fill(item.id));
+  });
   fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
     headers: {
@@ -75,20 +78,13 @@ const send = () => {
       }
     })
     .then(function (value) {
-      /* document.getElementById("result").innerText = value.postData.text;*/
+     localStorage.setItem("order", JSON.stringify(value))
+     window.location.href = "order_confirm.html";
       console.log(value);
     });
 };
-document.getElementById("bloc_form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const contact = {
-    lastName: document.getElementById("lastName").value,
-    firstName: document.getElementById("firstName").value,
-    address: document.getElementById("address").value,
-    city: document.getElementById("city").value,
-    email: document.getElementById("email").value,
-  };
-  /*
+
+/*
   if (
     (regexName.test(contact.lastName) == true) &
     (regexName.test(contact.firstName) == true) &
@@ -97,18 +93,12 @@ document.getElementById("bloc_form").addEventListener("submit", (e) => {
     (regexMail.test(contact.email) == true)
   )
   */
-  alert("Commande confirmée");
-  send();
 
-  /*
-  const testlS = basket.concat(contact);
-  const itemtest = JSON.stringify(testlS);
-  localStorage.setItem("test", itemtest);
-  window.location.href = "order_confirm.html";
-  */
-
-  const testlS = contact;
-  const itemtest = JSON.stringify(testlS);
-  localStorage.setItem("test", itemtest);
-  window.location.href = "order_confirm.html";
-});
+//Passer la commande
+async function placeOrder() {
+  document.getElementById("order_confirm").addEventListener("click", (e) => {
+    e.preventDefault();
+    send();
+  });
+}
+placeOrder();
