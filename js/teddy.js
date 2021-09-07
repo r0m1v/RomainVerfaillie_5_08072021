@@ -62,23 +62,3 @@ const createTeddyItemHtml = (teddy) => {
        </div>
      `;
 };
-
-const basketProductSelected = (teddyData) => {
-  return `<table>
-      <tr>
-        <th>Produit(s)</th>
-        <th>Couleur</th>
-        <th>Quantité</th>
-        <th>Prix</th>
-      </tr>
-      <tr>
-        <th>${teddyData.name}</th>
-        <th>${teddyData.color}</th>
-        <th id="line_quantity">${teddyData.quantity}</th>
-        <th>${teddyData.price * teddyData.quantity} €</th>
-      </tr>
-      <tr><th>Total à payer</th><th>${teddyData.price * teddyData.quantity} €</th></tr>
-    </table>
-    `;
-};
-

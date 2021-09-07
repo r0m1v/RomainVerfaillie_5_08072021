@@ -12,9 +12,9 @@
       src="https://kit.fontawesome.com/3d0e2c9533.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/basket.js"></script>
     <script defer src="./js/teddy.js"></script>
-    <script defer src="./js/basket.js"></script>
-    <script defer src="./js/order_confirm.js"></script>
+    <script defer src="./js/basket_UI.js"></script>
     <title>Orinoco / Site e-commerce</title>
   </head>
   <header>
@@ -29,18 +29,17 @@
     <div id="bloc_commande" class="formatting_page">
       <h2>Ma commande</h2>
       <div id="tableau_commande"></div>
-      <button id="clean_basket">Vider le panier</button
-      >
-      <a href="index.html"><button id="continue_shopping">Continuer ses achats</button></a>
+      <button id="clean_basket">Vider le panier</button>
+      <button id="continue_shopping">Continuer ses achats</button>
     </div>
   </section>
   <footer>
     <div id="bloc_form" class="formatting_page">
       <h2>Passer la commande</h2>
       <form id="form">
-        <label for="name">Nom</label>
+        <label for="lastName">Nom</label>
         <input type="text" name="lastName" id="lastName" required />
-        <label for="firstname">Prénom</label>
+        <label for="firstName">Prénom</label>
         <input type="text" name="firstName" id="firstName" required />
         <label for="address">Adresse</label>
         <input type="text" name="address" id="address" required />
@@ -48,7 +47,7 @@
         <input type="text" name="city" id="city" required />
         <label for="email">Adresse e-mail</label>
         <input type="text" name="email" id="email" required />
-        <input type="submit" value="Passer la commande" id="order_confirm"/>
+        <input type="submit" value="Passer la commande" id="order_confirm" />
       </form>
       <div id="result"></div>
     </div>

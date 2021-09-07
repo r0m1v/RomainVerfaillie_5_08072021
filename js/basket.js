@@ -1,23 +1,26 @@
-//Afficher les produits choisit dans un tableau
-const boardBasket = () => {
-  const teddyData = JSON.parse(localStorage.getItem("basket"));
-  document.getElementById("tableau_commande").innerHTML =
-    basketProductSelected(teddyData);
-};
-boardBasket();
-
-const buttonContinueShopping = () => {
-  document.getElementById("continue_shopping").addEventListener("click", () => {
-    window.location.href = "index.html";
+//Créer un panier si aucun panier existe
+function initialzeBasket() {
+  const basketFromLocalSTorage = localStorage.getItem("basket");
+  if (!basketFromLocalSTorage) {
+    const basket = {
+      items: [],
+    };
+    localStorage.setItem("basket", JSON.stringify(basket));
+  }
+}
+//Ajout un élément au panier
+function addItem(item) {
+  const basket = JSON.parse(localStorage.getItem("basket"));
+  basket.items.push(item);
+  localStorage.setItem("basket", JSON.stringify(basket));
+}
+// calcul et retourne le montant total du panier
+function getGrandTotal() {
+const basket = JSON.parse(localStorage.getItem("basket"));  
+  let total = 0;
+  basket.items.forEach((item) => {
+    total += item.price * item.quantity;
   });
-};
-
-//Clean le local storage
-const cleanBasket = () =>
-  document.getElementById("clean_basket").addEventListener("click", (e) => {
-    e.preventDefault;
-    localStorage.removeItem("basket");
-    alert("le panier a été vidé");
-    window.location.href = "basket.html";
-  });
-cleanBasket();
+  return total;
+}
+initialzeBasket();
