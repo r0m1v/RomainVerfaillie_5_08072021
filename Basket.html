@@ -17,39 +17,42 @@
     <script defer src="./js/basket_UI.js"></script>
     <title>Orinoco / Site e-commerce</title>
   </head>
-  <header>
-    <div class="top_page formatting_page">
-      <a href="index.html"><h1>Orinoco</h1></a>
-      <div class="basket">
-        <i class="fas fa-shopping-cart"></i>
+  <body>
+    <header>
+      <div class="top_page formatting_page">
+        <a href="index.html"><h1>Orinoco</h1></a>
+        <div class="basket">
+          <i class="fas fa-shopping-cart"></i>
+        </div>
       </div>
-    </div>
-  </header>
-  <section>
-    <div id="bloc_commande" class="formatting_page">
-      <h2>Ma commande</h2>
-      <div id="tableau_commande"></div>
-      <button id="clean_basket">Vider le panier</button>
-      <button id="continue_shopping">Continuer ses achats</button>
-    </div>
-  </section>
-  <footer>
-    <div id="bloc_form" class="formatting_page">
-      <h2>Passer la commande</h2>
-      <form id="form">
-        <label for="lastName">Nom</label>
-        <input type="text" name="lastName" id="lastName" required />
-        <label for="firstName">Prénom</label>
-        <input type="text" name="firstName" id="firstName" required />
-        <label for="address">Adresse</label>
-        <input type="text" name="address" id="address" required />
-        <label for="city">Ville</label>
-        <input type="text" name="city" id="city" required />
-        <label for="email">Adresse e-mail</label>
-        <input type="text" name="email" id="email" required />
-        <button type="button" id="order_confirm">Passer la commande</button>
-      </form>
-      <div id="result"></div>
-    </div>
-  </footer>
+    </header>
+    <section>
+      <div id="bloc_commande" class="formatting_page">
+        <h2>Ma commande</h2>
+        <div id="tableau_commande"></div>
+        <button id="clean_basket">Vider le panier</button>
+        <button id="continue_shopping">Continuer ses achats</button>
+      </div>
+    </section>
+    <footer>
+      <div id="bloc_form" class="formatting_page">
+        <h2>Passer la commande</h2>
+        <form id="form">
+          <label for="lastName">Nom</label>
+          <input type="text" name="lastName" id="lastName" required />
+          <label for="firstName">Prénom</label>
+          <input type="text" name="firstName" id="firstName" required />
+          <label for="address">Adresse</label>
+          <input type="text" name="address" id="address" required />
+          <label for="city">Ville</label>
+          <input type="text" name="city" id="city" required />
+          <label for="email">Adresse e-mail</label>
+          <input type="text" name="email" id="email" required />
+          <button type="button" id="order_confirm">Passer la commande</button>
+        </form>
+        <div id="result"></div>
+      </div>
+      <div class="formatting_page"><h3>Contact</h3></div>
+    </footer>
+  </body>
 </html>

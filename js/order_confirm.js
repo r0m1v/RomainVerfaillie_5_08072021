@@ -2,18 +2,32 @@
 const displayContact = (contact) => {
   return `<div>
   <p>Nom : ${contact.lastName}</p>
-  <p>Prénom :${contact.firstName}</p>
-  <p>Email : </p>
+  <p>Prénom : ${contact.firstName}</p>
+  <p>Adresse : ${contact.address}</p>
+  <p>Ville : ${contact.city}</p>
+  <p>Email : ${contact.email}</p>
   </div>`;
 };
+
+const displayProduct = (items) => {
+  return `<div><p>Test : ${items.name}</p></div>`;
+}
 
 const displayOrder = () => {
   const orderDiv = document.getElementById("order");
   const order = JSON.parse(localStorage.getItem("order"));
+  const baskettest = JSON.parse(localStorage.getItem("basket"))
   orderDiv.innerHTML = `
+  <div id="ticket">
+  <p>Votre commande a bien été effectuée</p>
   <div>${displayContact(order.contact)}</div>
-  <div>
-  ${order.products.map(createTeddyItemHtml)}
+  <div>${displayProduct(baskettest.items)}</div>
+  <p>Merci pour votre achat</p>
   </div>`;
 };
 displayOrder();
+/*
+<div>
+  ${order.products.map(createTeddyItemHtml)}
+  </div>;
+*/

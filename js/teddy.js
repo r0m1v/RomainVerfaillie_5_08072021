@@ -34,8 +34,8 @@ const createTeddyHTML = (teddy) => {
       <a href="product_selected.html?id=${teddy._id}">
         <img class="img_product" src=${teddy.imageUrl} alt="${teddy.name}">
         <div class="nameandprice">
-          <h3>${teddy.name}</h3>
-          <p>${teddy.price / 100},00 €</p>
+          <h3 class="title">${teddy.name}</h3>
+          <p class="price">${teddy.price / 100},00 €</p>
         </div>
         <p>${teddy.description}</p>
       </a>
@@ -54,8 +54,8 @@ const createTeddyItemHtml = (teddy) => {
          <a href="product_selected.html?id=${teddy._id}">
            <img class="img_product" src=${teddy.imageUrl} alt="${teddy.name}">
            <div class="nameandprice">
-             <h3>${teddy.name}</h3>
-             <p>${teddy.price / 100},00 €</p>
+             <h3 class="title">${teddy.name}</h3>
+             <p class="price">${teddy.price / 100},00 €</p>
            </div>
            <p>${teddy.description}</p>
          </a>  
