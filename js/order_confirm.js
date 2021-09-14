@@ -10,13 +10,21 @@ const displayContact = (contact) => {
 };
 
 const displayProduct = (items) => {
-  return `<div><p>Test : ${items.name}</p></div>`;
-}
+  return items.map((item) =>
+  `<div id="ticket_product">
+  <div><p>Article : ${item.name}</p>
+  <p>Id : ${item.id}</p></div>
+  <p>Prix : ${item.color}</p>
+  <p>Prix : ${item.price},00 €</p>
+  <p>Quantité : ${item.quantity}</p>
+  </div>`
+  ).join("");
+};
 
 const displayOrder = () => {
   const orderDiv = document.getElementById("order");
   const order = JSON.parse(localStorage.getItem("order"));
-  const baskettest = JSON.parse(localStorage.getItem("basket"))
+  const baskettest = JSON.parse(localStorage.getItem("basket"));
   orderDiv.innerHTML = `
   <div id="ticket">
   <p>Votre commande a bien été effectuée</p>

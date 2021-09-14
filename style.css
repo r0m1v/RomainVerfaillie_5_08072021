@@ -11,12 +11,13 @@ img {
   object-fit: cover;
 }
 
-
 @font-face {
   font-family: "FingerPaint";
   src: url("police/FingerPaint-Regular.ttf");
 }
-
+.fingerpaint {
+  font-family: "FingerPaint";
+}
 h1 {
   font-family: FingerPaint;
   font-size: 36px;
@@ -27,7 +28,7 @@ a {
   color: black;
 }
 
-th{
+th {
   border: 2px solid black;
   background-color: white;
   padding: 0.5em 0.5em;
@@ -81,27 +82,53 @@ th{
 }
 
 #teddy_container,
-#formating_order{
+#formating_order {
   display: flex;
   justify-content: center;
 }
 
-.title{
-  color : #ea4300;
+.title {
+  color: #ea4300;
 }
-.price{
+.price {
   font-weight: 600;
 }
-#select_button{
+#select_button {
   display: flex;
   justify-content: center;
-  gap : 2em;
+  gap: 2em;
 }
 
 button {
   border-radius: 20px;
-  background-color:white;
+  background-color: white;
   padding: 0.5em;
+  color: #ea4300;
+  margin-left: 1em;
+}
+
+.button_page3 {
+  margin-top: 2em;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#text_button{
+font-size: 15px;
+font-weight: 500;
+}
+
+#quantity,
+#btn-more,
+#btn-less{
+  color: black;
+  border-radius: 0;
+  font-weight: 800;
+}
+
+.jc-center{
+  display: flex;
+  justify-content: center;
 }
 
 .formatting_products {
@@ -111,9 +138,10 @@ button {
   background-color: #dac3ff;
   border-radius: 20px;
   margin-top: 1em;
+  padding-bottom: 2em;
 }
 
-.img_product{
+.img_product {
   height: 20em;
 }
 
@@ -124,12 +152,24 @@ button {
   padding: 0 0.5em;
 }
 
+#ticket {
+  border: 2px solid white;
+  background-color: white;
+  width: 20rem;
+  padding: 1em;
+}
 
-#ticket{
-border: 2px solid white;
-background-color: white;
-width: 20rem;
-padding: 1em;
+label {
+  font-weight: 600;
+  font-size: 20px;
+}
+input {
+  margin-right: 1em;
+}
+
+#ticket_product{
+border: 2px solid black;
+padding: 0.5em;
 }
 
 @media screen and (max-width: 768px) {
@@ -142,10 +182,23 @@ padding: 1em;
   .formatting_products {
     width: auto;
     margin: 2em 0.5em;
-  }  
+  }
 
-  .img_product{
+  .img_product {
     width: 100%;
   }
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input {
+    width: 80%;
+    height: 2em;
+  }
+
+  .button_page3 {
+    width: 30%;
+  }
 }
