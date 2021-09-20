@@ -8,26 +8,21 @@ const fetchTeddies = async () => {
   return await res.json();
 };
 
-/*
-    récupération un teddy à partir de son identifiant (_id)
-  */
+//récupération d'un teddy à partir de son identifiant (_id)
 const fetchTeddy = async (id) => {
   const res = await fetch(`http://localhost:3000/api/teddies/${id}`);
 
   return await res.json();
 };
 
+//Créer une option de choix de couleur
 const createTeddyColorsOptionsHtml = (teddy) => {
   return teddy.colors.map((color) => {
     return `<option value="${color}">${color}</option>`;
   }); //map permet de transformer
 };
 
-
-/*
-    créé un element HTML pour un teddy
-  */
-    
+//créé un element HTML pour un teddy
 const createTeddyHTML = (teddy) => {
   return `
     <div class="formatting_products">

@@ -34,8 +34,3 @@ const displayOrder = () => {
   </div>`;
 };
 displayOrder();
-/*
-<div>
-  ${order.products.map(createTeddyItemHtml)}
-  </div>;
-*/

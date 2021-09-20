@@ -30,11 +30,14 @@
       <div id="bloc_commande" class="formatting_page">
         <h2 class="fingerpaint jc-center">Ma commande</h2>
         <div id="tableau_commande" class="jc-center"></div>
-        <div class="jc-center"><button id="clean_basket" class="button_page3">Vider le panier</button>
-        <button id="continue_shopping" class="button_page3">
-          Continuer ses achats
-        </button></div>
-        
+        <div class="jc-center">
+          <button id="clean_basket" class="button_page3">
+            Vider le panier
+          </button>
+          <button id="continue_shopping" class="button_page3">
+            Continuer ses achats
+          </button>
+        </div>
       </div>
     </section>
     <footer>
@@ -42,15 +45,39 @@
         <h2 class="fingerpaint">Passer la commande</h2>
         <form id="form">
           <label for="lastName">Nom</label>
-          <input type="text" name="lastName" id="lastName" required />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            pattern="[A-Za-z]"
+            required
+          />
           <label for="firstName">Prénom</label>
-          <input type="text" name="firstName" id="firstName" required />
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            pattern="[A-Za-z]"
+            required
+          />
           <label for="address">Adresse</label>
           <input type="text" name="address" id="address" required />
           <label for="city">Ville</label>
-          <input type="text" name="city" id="city" required />
+          <input
+            type="text"
+            name="city"
+            id="city"
+            pattern="[A-Za-z]"
+            required
+          />
           <label for="email">Adresse e-mail</label>
-          <input type="text" name="email" id="email" required />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            required
+          />
           <div class="jc-center">
             <button
               type="button"
