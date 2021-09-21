@@ -16,12 +16,15 @@ function addItem(item) {
 }
 // calcul et retourne le montant total du panier
 function getGrandTotal() {
-const basket = JSON.parse(localStorage.getItem("basket"));  
+  const basket = JSON.parse(localStorage.getItem("basket"));
   let total = 0;
   basket.items.forEach((item) => {
     total += item.price * item.quantity;
   });
   return total;
 }
-//Passer la commande
+//Clean le local storage
+const cleanBasket = () => {
+  localStorage.removeItem("basket");
+};
 initializeBasket();

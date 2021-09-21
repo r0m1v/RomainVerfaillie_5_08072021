@@ -28,9 +28,11 @@ const displayOrder = () => {
   orderDiv.innerHTML = `
   <div id="ticket">
   <p>Votre commande a bien été effectuée</p>
+  <p>N° commande : ${order.orderId}</p>
   <div>${displayContact(order.contact)}</div>
   <div>${displayProduct(baskettest.items)}</div>
   <p>Merci pour votre achat</p>
   </div>`;
 };
 displayOrder();
+cleanBasket();

@@ -33,14 +33,12 @@ const boardBasket = () => {
 boardBasket();
 
 //Clean le local storage
-const cleanBasket = () =>
+const initializeCleanBasket = () =>
   document.getElementById("clean_basket").addEventListener("click", (e) => {
     e.preventDefault();
-    localStorage.removeItem("basket");
-    alert("le panier a été vidé");
-    window.location.href = "basket.html";
+    cleanBasket();
   });
-cleanBasket();
+initializeCleanBasket();
 
 const send = () => {
   const contact = {
@@ -72,8 +70,8 @@ const send = () => {
       }
     })
     .then(function (value) {
-     localStorage.setItem("order", JSON.stringify(value))
-     window.location.href = "order_confirm.html";
+      localStorage.setItem("order", JSON.stringify(value));
+      window.location.href = "order_confirm.html";
       console.log(value);
     });
 };
@@ -81,8 +79,34 @@ const send = () => {
 //Passer la commande
 async function placeOrder() {
   document.getElementById("order_confirm").addEventListener("click", (e) => {
+    let hasNoError = true;
+
     e.preventDefault();
-    send();
+    hasNoError = validateTextInput("lastName", "error-lastName") && hasNoError;
+    hasNoError =
+      validateTextInput("firstName", "error-firstName") && hasNoError;
+    if (hasNoError === true) {
+      send();
+    }
   });
 }
 placeOrder();
+
+function validateTextInput(inputId, errorId) {
+  const textInput = document.getElementById(inputId);
+  const myRegex = /^[a-zA-Z]+$/;
+  const myError = document.getElementById(errorId);
+
+  myError.style.color = "red";
+  if (textInput.value == "") {
+    myError.innerHTML = "le champ lastName est requis";
+    return false;
+  }
+  if (myRegex.test(textInput.value) === false) {
+    myError.innerHTML = "le champ doit comporter que des lettres";
+    return false;
+  }
+  myError.innerHTML = "";
+  myError.style.color = "";
+  return true;
+}
