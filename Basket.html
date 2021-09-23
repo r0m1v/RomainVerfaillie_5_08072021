@@ -44,41 +44,21 @@
       <div id="bloc_form" class="formatting_page">
         <h2 class="fingerpaint">Passer la commande</h2>
         <form id="form">
-          <label for="lastName">Nom</label>
-          <input
-            type="text"
-            name="lastName"
-            id="lastName"
-            required
-          />
+          <label for="lastName">Nom *</label><br />
+          <input type="text" name="lastName" id="lastName" required />
           <p id="error-lastName"></p>
-          <label for="firstName">Prénom</label>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            pattern="[A-Za-z]"
-            required
-          />
+          <label for="firstName">Prénom *</label><br />
+          <input type="text" name="firstName" id="firstName" required />
           <p id="error-firstName"></p>
-          <label for="address">Adresse</label>
+          <label for="address">Adresse *</label><br />
           <input type="text" name="address" id="address" required />
-          <label for="city">Ville</label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            pattern="[A-Za-z]"
-            required
-          />
-          <label for="email">Adresse e-mail</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            required
-          />
+          <p></p>
+          <label for="city">Ville *</label><br />
+          <input type="text" name="city" id="city" required />
+          <p id="error-city"></p>
+          <label for="email">Adresse e-mail *</label><br />
+          <input type="text" name="email" id="email" required />
+          <p id="error-email"></p>
           <div class="jc-center">
             <button
               type="button"

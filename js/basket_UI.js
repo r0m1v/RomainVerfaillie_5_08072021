@@ -85,6 +85,8 @@ async function placeOrder() {
     hasNoError = validateTextInput("lastName", "error-lastName") && hasNoError;
     hasNoError =
       validateTextInput("firstName", "error-firstName") && hasNoError;
+    hasNoError = validateTextInput("city", "error-city") && hasNoError;
+    hasNoError = validateEmailInput("email", "error-email") && hasNoError;
     if (hasNoError === true) {
       send();
     }
@@ -94,16 +96,34 @@ placeOrder();
 
 function validateTextInput(inputId, errorId) {
   const textInput = document.getElementById(inputId);
-  const myRegex = /^[a-zA-Z]+$/;
+  const myRegex = /^[a-zA-Z\s\-]+$/;
   const myError = document.getElementById(errorId);
 
   myError.style.color = "red";
   if (textInput.value == "") {
-    myError.innerHTML = "le champ lastName est requis";
+    myError.innerHTML = "Tous les champs doivent être remplis";
     return false;
   }
   if (myRegex.test(textInput.value) === false) {
     myError.innerHTML = "le champ doit comporter que des lettres";
+    return false;
+  }
+  myError.innerHTML = "";
+  myError.style.color = "";
+  return true;
+}
+
+function validateEmailInput(inputId, errorId) {
+  const textInput = document.getElementById(inputId);
+  const myReggexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const myError = document.getElementById(errorId);
+  myError.style.color = "red";
+  if (textInput.value == "") {
+    myError.innerHTML = "Tous les champs doivent être remplis";
+    return false;
+  }
+  if (myReggexEmail.test(textInput.value) === false) {
+    myError.innerHTML = "le champ doit comporter une adresse mail valide";
     return false;
   }
   myError.innerHTML = "";
