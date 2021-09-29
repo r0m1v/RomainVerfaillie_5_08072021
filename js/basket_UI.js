@@ -96,7 +96,7 @@ placeOrder();
 
 function validateTextInput(inputId, errorId) {
   const textInput = document.getElementById(inputId);
-  const myRegex = /^[a-zA-Z\-]+$/;
+  const myRegex = /^[a-zA-Z]+$/;
   const myError = document.getElementById(errorId);
 
   myError.style.color = "red";
