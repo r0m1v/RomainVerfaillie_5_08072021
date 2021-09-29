@@ -35,7 +35,7 @@ boardBasket();
 //Clean le local storage
 const initializeCleanBasket = () =>
   document.getElementById("clean_basket").addEventListener("click", (e) => {
-    e.preventDefault();
+    e.preventDefault(location.reload());
     cleanBasket();
   });
 initializeCleanBasket();
@@ -96,7 +96,7 @@ placeOrder();
 
 function validateTextInput(inputId, errorId) {
   const textInput = document.getElementById(inputId);
-  const myRegex = /^[a-zA-Z\s\-]+$/;
+  const myRegex = /^[a-zA-Z\-]+$/;
   const myError = document.getElementById(errorId);
 
   myError.style.color = "red";

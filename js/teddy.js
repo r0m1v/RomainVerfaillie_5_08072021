@@ -4,7 +4,7 @@
 */
 const fetchTeddies = async () => {
   const res = await fetch("http://localhost:3000/api/teddies");
-
+  
   return await res.json();
 };
 

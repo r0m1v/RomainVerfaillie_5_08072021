@@ -14,7 +14,7 @@ const displayProduct = (items) => {
   `<div id="ticket_product">
   <div><p>Article : ${item.name}</p>
   <p>Id : ${item.id}</p></div>
-  <p>Prix : ${item.color}</p>
+  <p>Couleur : ${item.color}</p>
   <p>Prix : ${item.price},00 €</p>
   <p>Quantité : ${item.quantity}</p>
   </div>`
